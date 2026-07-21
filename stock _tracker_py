@@ -1,0 +1,39 @@
+# Stock Portfolio Tracker
+
+stock_prices = {
+    "AAPL": 180,
+    "TSLA": 250,
+    "GOOGL": 140,
+    "MSFT": 330,
+    "AMZN": 135
+}
+
+total = 0
+
+print("Available Stocks:", stock_prices.keys())
+
+n = int(input("Enter number of stocks: "))
+
+for i in range(n):
+    name = input("Enter Stock Name: ").strip().upper()
+
+    if name in stock_prices:
+        quantity = int(input("Enter Quantity: "))
+
+        value = stock_prices[name] * quantity
+        total = total + value
+
+        print(name, "Value =", value)
+
+    else:
+        print("Stock not available!")
+
+print("------------------------")
+print("Total Investment Value =", total)
+
+# Save file
+file = open("portfolio.txt", "w")
+file.write("Total Investment Value = " + str(total))
+file.close()
+
+print("Portfolio saved successfully!")
